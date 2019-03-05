@@ -1,0 +1,119 @@
+// out: app.css, compress: true, sourcemap: true
+html,body{
+    font-family: 'Montserrat', sans-serif;
+}
+
+@gold: #FFC915;
+@gray: #676C73;
+@gray2: #C2C7CA;
+
+ul{
+    &.nav{
+        .nav-item{
+            a{
+                background: @gold;
+                color: @gray;
+                border-bottom: 5px solid rgba(0, 0, 0, 0.2);
+                text-transform: uppercase;
+                &.active{
+                    color: #676C73;
+                    background-color: #efb701;
+                }
+
+                @media screen and (max-width: 568px){
+                    font-size: 0.8em;
+                }
+            }
+        }
+    }
+}
+
+iframe{
+    border:0;
+    height:100vh;
+    height: ~"calc(100vh - 45px)";
+    width:100%;
+}
+
+.wrapper{
+    max-width: 100vw;
+    margin: 0 auto;
+    position: relative;
+    display: block;
+}
+#cover{
+    width: 100vw;
+    height: 100vh;
+    // height: ~"calc(100vh + 45px)";
+    display: block;
+    position: absolute;
+    max-width: 100%;
+    top: 0;
+    left: 0;
+    background: url('../img/bg@2x.jpg');
+    // background: url('../img/bg@2x.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    .pin{
+        width: 100vw;
+        height: 100vh;
+        // height: ~"calc(100vh + 45px)";
+        display: block;
+        position: absolute;
+        max-width: 100%;
+        top: 0;
+        left: 0;
+        background: url('../img/pin@2x.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+    }
+}
+
+.btn-toolbar{
+    position: absolute;
+    bottom: 6em;
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+.btn{
+    display:block;
+    margin: 0 auto;
+    width: 350px;
+    max-width:80%;
+    font-weight: 600;
+    color: #FFFFFF;
+    text-align: center;
+    text-transform: uppercase;
+
+    line-height: 2em;
+
+    + .btn{
+        margin-top: 1em;
+    }
+
+    border: none;
+    outline: 0;
+    background-blend-mode: normal;
+
+    &.btn-primary{
+        background-image: linear-gradient(-164deg, #FFA00A 2%, #FF8A0F 100%);
+        &:hover,&:active,&:focus{
+
+            background-image: linear-gradient(-164deg, #F2990A 2%, #F2840F 100%);
+        }
+    }
+
+    &.btn-secondary{
+        background-image: linear-gradient(-164deg, #FDC140 4%, #FFAF00 100%);
+        &:hover,&:active,&:focus{
+
+            background-image: linear-gradient(-164deg, #F2B93D 4%, #F2A600 100%);
+        }
+    }
+
+
+}

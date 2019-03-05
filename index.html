@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:600" rel="stylesheet">
+    <link rel="stylesheet" href="css/app.css">
+    <title>Realme Map</title>
+</head>
+<body>
+
+    <div class="container-fluid px-0">
+        <div class="wrapper">
+
+            <ul class="nav nav-pills nav-fill nav-justified" id="realme-maps" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link rounded-0" id="stores-tab" data-toggle="tab" href="#stores" role="tab" aria-controls="stores" aria-selected="false">Stores</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link rounded-0" id="service-centers-tab" data-toggle="tab" href="#service-centers" role="tab" aria-controls="service-centers" aria-selected="false">Service Centers</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="realme-maps-content">
+                <div class="tab-pane fade" id="stores" role="tabpanel" aria-labelledby="stores-tab">
+                    <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1Rd1Nc6FXvMt5w0zjNYlcoxgDxURwMA1c" ></iframe>
+                </div>
+                <div class="tab-pane fade" id="service-centers" role="tabpanel" aria-labelledby="service-centers-tab">
+                    <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1PMLl0MigNMdMI0I4cv4Yj8fg02SgQdtX" ></iframe>
+                </div>
+            </div>
+
+            <div id="cover">
+                <div class="pin"></div>
+                <div class="btn-toolbar">
+                    <button class="btn btn-primary btn-stores">Where to Buy</button>
+                    <button class="btn btn-secondary btn-service">Service Centers</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script>
+    jQuery(function($){
+
+
+
+        $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+            e.preventDefault();
+
+            console.log('tab-shown');
+            var iframe = $($(e.target).attr('href')).find('iframe').first();
+            if(iframe && !$(iframe).hasClass('loaded')) $(iframe)[0].src += ''; // newly activated tab
+            $(iframe).addClass('loaded');
+        });
+
+        $('.btn-stores').click(function(e){
+            e.preventDefault();
+            $('#realme-maps a[href="#stores"]').trigger('click');
+            $('#cover').hide();
+        });
+
+        $('.btn-service').click(function(e){
+            e.preventDefault();
+            $('#realme-maps a[href="#service-centers"]').trigger('click');
+            $('#cover').hide();
+        });
+
+    });
+</script>
+</body>
+</html>
